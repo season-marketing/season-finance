@@ -4,6 +4,7 @@ module.exports = {
     content: [
       './app/Resources/js/**/*.js',
       './app/Resources/css/**/*.css',
+      './app/Resources/views/**/*.blade.php'
     ]
   },
   darkMode: false,

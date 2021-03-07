@@ -19,21 +19,18 @@ nav li a.isActive {
 }
 
 nav li a.isActive {
-  @apply text-yellow-300;
+  color: #61984c;
 }
 
 @media screen and (min-width: 768px) {
   nav li a.isActive::after {
-    background-image: url(../../app/Resources/images/links/recs-white.svg);
     content: '';
     width: 100%;
-    height: 20px;
+    height: 2px;
     display: block;
-    background-size: contain;
-    background-repeat: no-repeat;
     position: absolute;
-    background-position: center;
     margin-top: 7px;
+    background: #61984c;
   } 
 }
 
@@ -50,4 +47,11 @@ nav li a.isActive {
   display: inline;
   left: -60px;
   top: -10px;
+}
+
+#navToggle div {
+  width: 25px;
+  height: 4px;
+  background-color: black;
+  margin: 4px 0;
 }

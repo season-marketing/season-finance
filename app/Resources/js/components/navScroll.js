@@ -14,11 +14,14 @@ export const setNavStyle = () => {
     // if (scrollTop > elScrollTop - 40 && scrollTop < elScrollBottom) return true;
   });
 
-  const newNav = document.querySelector(`nav a[href="#${item.id}"]`);
+  if (item) {
 
-  if (newNav !== currentNav) {
-    currentNav = newNav;
-    navs.forEach((nav) => nav.classList.remove("isActive"));
-    currentNav.classList.add("isActive");
+    const newNav = document.querySelector(`nav a[href="#${item.id}"]`);
+    
+    if (newNav !== currentNav) {
+      currentNav = newNav;
+      navs.forEach((nav) => nav.classList.remove("isActive"));
+      currentNav.classList.add("isActive");
+    }
   }
 };

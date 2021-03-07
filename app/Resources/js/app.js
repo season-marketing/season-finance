@@ -1,6 +1,7 @@
 import SmoothScroll from "smooth-scroll";
-import { setNavStyle } from './components/navScroll';
-import './components/navToggle';
+import { setNavStyle } from "./components/navScroll";
+import "./components/navToggle";
+import "./components/contactForm";
 
 new SmoothScroll('a[href*="#"]', {
   offset: function() {
@@ -8,7 +9,7 @@ new SmoothScroll('a[href*="#"]', {
   },
 });
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   setNavStyle();
-  window.addEventListener('scroll', setNavStyle)
-})
+  window.addEventListener("scroll", setNavStyle);
+});
