@@ -1,5 +1,5 @@
 <?php 
-$to = "nathanmerry9713@gmail.com";
+$to = "contact@seasonfinance.com";
 
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";

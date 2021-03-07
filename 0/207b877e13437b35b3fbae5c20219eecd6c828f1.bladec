@@ -10,7 +10,7 @@
  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="./dist/css/app.css" />
  <script src="./dist/js/app.js"></script>
- <title>Document</title>
+ <title>Season Finance</title>
  </head>
 
  <body class="font-body">
