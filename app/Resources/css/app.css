@@ -18,8 +18,12 @@ nav li a.isActive {
   color: #8cc7ab;
 }
 
-.orange {
+.text-primary {
   color: #8cc7ab;
+}
+
+.bg-primary {
+  background: #8cc7ab;
 }
 
 @media screen and (min-width: 768px) {
@@ -30,7 +34,7 @@ nav li a.isActive {
     display: block;
     position: absolute;
     margin-top: 7px;
-    background: #61984c;
+    background: #8cc7ab;
   } 
 }
 
@@ -57,14 +61,13 @@ nav li a.isActive {
 }
 
 .hero-subheader {
-  line-height: 37px;
-  font-size: 28px;
+  line-height: 30px;
+  font-size: 18px;
 }
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) { 
   .hero-subheader {
-    line-height: 30px;
-    font-size: 18px;
+    line-height: 37px;
+    font-size: 28px;
   }
 }
 
