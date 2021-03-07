@@ -1,0 +1,19 @@
+{
+    "name": "smo-investments/landing-page",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nathan Merry",
+            "email": "nathanmerry9713@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^5.0",
+        "eftec/bladeone": "^3.41"
+    },
+    "autoload": {
+        "psr-4": {
+            "LandingPage\\": "app"
+        }
+    }
+}

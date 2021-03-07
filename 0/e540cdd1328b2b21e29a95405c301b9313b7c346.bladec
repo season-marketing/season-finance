@@ -1,0 +1,20 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('header'); ?>
+ <?php echo $this->runChild('modules.header'); ?>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('body'); ?>
+ <main>
+ <?php echo $this->runChild('modules.home'); ?>
+ <?php echo $this->runChild('modules.services'); ?>
+ <?php echo $this->runChild('modules.about'); ?>
+ <?php echo $this->runChild('modules.contact'); ?>
+ </main>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('footer'); ?>
+ <?php echo $this->runChild('modules.footer'); ?>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout'); } ?>

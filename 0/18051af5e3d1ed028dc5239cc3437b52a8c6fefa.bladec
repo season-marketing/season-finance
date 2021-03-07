@@ -1,0 +1,23 @@
+<header class="bg-black text-white">
+ <div class="container px-4 mx-auto py-4">
+ <div class="flex justify-between">
+ <div class="">logo</div>
+ <nav class="">
+ <ul class="flex text-lg md:text-2xl">
+ <li class="underline mx-4">
+ <a href="#home" class="">Home</a>
+ </li>
+ <li class="underline mx-4">
+ <a href="#services" class="">Services</a>
+ </li>
+ <li class="underline mx-4">
+ <a href="#about" class="">About</a>
+ </li>
+ <li class="underline mx-4">
+ <a href="#contact" class="">Contact</a>
+ </li>
+ </ul>
+ </nav>
+ </div>
+ </div>
+</header>
