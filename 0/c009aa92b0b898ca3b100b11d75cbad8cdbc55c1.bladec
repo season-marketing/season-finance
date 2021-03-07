@@ -10,7 +10,7 @@
  Assuring a fair treatment of our users help us protect our buyers.
  We are fully FCA licensed and GDPR compliant.
  </p>
- <?php echo $this->runChild('components.scrollForMore', ['class' => 'text-white']); ?>
+ <?php echo $this->runChild('components.scrollForMore', ['class' => 'text-white', 'link' => '#contact']); ?>
  </div>
  </div>
 </div>

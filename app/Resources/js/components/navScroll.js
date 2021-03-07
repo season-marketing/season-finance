@@ -14,6 +14,7 @@ export const setNavStyle = () => {
     // if (scrollTop > elScrollTop - 40 && scrollTop < elScrollBottom) return true;
   });
 
+  console.log(item)
   if (item) {
 
     const newNav = document.querySelector(`nav a[href="#${item.id}"]`);

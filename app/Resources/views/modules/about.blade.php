@@ -10,7 +10,7 @@
         Assuring a fair treatment of our users help us protect our buyers.
         We are fully FCA licensed and GDPR compliant.
       </p>
-      @include('components.scrollForMore', ['class' => 'text-white'])
+      @include('components.scrollForMore', ['class' => 'text-white', 'link' => '#contact'])
     </div>
   </div>
 </div>

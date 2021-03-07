@@ -12,10 +12,10 @@
         <img class="w-1/5 px-4" src="app/Resources/images/brand-logos/loanskipper_grey.png" alt="">
         <img class="w-1/5 px-4" src="app/Resources/images/brand-logos/loankite_grey.png" alt="">
       </div>
-      @include('components.scrollForMore', ['class' => 'text-white'])
+      @include('components.scrollForMore', ['class' => 'text-white', 'link' => '#lenders'])
     </div>
   </div>
-  <div class="py-16 md:py-24">
+  <div id="lenders" class="py-16 md:py-24">
     <div class="max-w-container-sm px-4 mx-auto text-lg md:text-2xl bg-map bg-hero bg-contain bg-no-repeat">
       <div class="mb-8 md:mb-28">At Season Finance we deliver a technically advanced and flexible service to our partners in the UK, USA, and Australia.</div>
       <div class="">
@@ -32,7 +32,7 @@
       <div class="md:w-1/2 my-10 ml-auto">
         @include('components.getInTouch')
       </div>
-      @include('components.scrollForMore', ['class' => 'text-black'])
+      @include('components.scrollForMore', ['class' => 'text-black', 'link' => '#about'])
     </div>
   </div>
 </div>
