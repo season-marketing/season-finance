@@ -1,13 +1,13 @@
 <div class="js-component" id="contact">
-  <div class="grid grid-cols-12 text-lg md:text-2xl">
+  <div class="grid grid-cols-12 text-lg md:text-lg">
     <div class="col-span-12 md:col-span-5 bg-yellow-400 px-4 md:px-10 py-12 text-white">
       <div class="flex items-start">
         <div class="w-16"></div>
-        <h2 class="mb-10 text-2xl md:text-4xl font-bold">CONTACT US</h2>
+        <h2 class="mb-10 text-lg md:text-4xl font-bold">CONTACT US</h2>
       </div>
       <div class="flex items-start mb-6">
         <img class="w-12 pr-4" src="app/Resources/images/icons/email-icon.png" alt="">
-        <a href="mailto:hello@seasonfinance.com" class="underline text-blue-600">hello@seasonfinance.com</a>
+        <a href="mailto:hello@seasonfinance.com" class="underline link">hello@seasonfinance.com</a>
       </div>
       <div class="flex items-start mb-6">
         <img class="w-12 pr-4" src="app/Resources/images/icons/telephone-icon.png" alt="">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col-span-12 md:col-span-7 px-4 md:px-10 py-12">
-      <h2 class="mb-10 text-2xl md:text-4xl font-bold text-center">GET IN TOUCH</h2>
+      <h2 class="mb-10 text-lg md:text-4xl font-bold text-center">GET IN TOUCH</h2>
       <div class="mb-8">We are always open for a conversation, say hello via the contact form below, we would love to hear from you!</div>
       <form id="contactForm" class="md:grid grid-cols-2 gap-10">
         <input name="first_name" type="text" placeholder="First Name" class="w-full mb-5 md:mb-0 placeholder-black border-b border-yellow-300 focus:outline-none">

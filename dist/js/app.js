@@ -109,6 +109,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var smooth_scroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! smooth-scroll */ "./node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js");
 /* harmony import */ var smooth_scroll__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(smooth_scroll__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_navScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/navScroll */ "./app/Resources/js/components/navScroll.js");
+/* harmony import */ var _components_navScroll__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_navScroll__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_navToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/navToggle */ "./app/Resources/js/components/navToggle.js");
 /* harmony import */ var _components_navToggle__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_navToggle__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_contactForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/contactForm */ "./app/Resources/js/components/contactForm.js");
@@ -121,10 +122,6 @@ new smooth_scroll__WEBPACK_IMPORTED_MODULE_0___default.a('a[href*="#"]', {
   offset: function offset() {
     return 40;
   }
-});
-window.addEventListener("load", function () {
-  Object(_components_navScroll__WEBPACK_IMPORTED_MODULE_1__["setNavStyle"])();
-  window.addEventListener("scroll", _components_navScroll__WEBPACK_IMPORTED_MODULE_1__["setNavStyle"]);
 });
 
 /***/ }),
@@ -197,38 +194,39 @@ window.addEventListener("load", function () {
 /*!**************************************************!*\
   !*** ./app/Resources/js/components/navScroll.js ***!
   \**************************************************/
-/*! exports provided: setNavStyle */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNavStyle", function() { return setNavStyle; });
-var setNavStyle = function setNavStyle() {
-  var components = Array.from(document.querySelectorAll('.js-component'));
-  var navs = Array.from(document.querySelectorAll('nav li a'));
-  var currentNav = null;
-  var scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
-  var item = components.find(function (component) {
-    var elScrollTop = component.getBoundingClientRect().top + scrollTop;
-    var elScrollBottom = component.getBoundingClientRect().bottom + scrollTop;
-    if (scrollTop < 60 && elScrollTop < 100) return true;
-    if (scrollTop > elScrollTop - 40 && scrollTop < elScrollBottom - 40) return true;
-    if (scrollTop === elScrollTop - 40) return true; // if (scrollTop > elScrollTop - 40 && scrollTop < elScrollBottom) return true;
-  });
-  console.log(item);
+window.addEventListener('load', function () {
+  var setNavStyle = function setNavStyle() {
+    var components = Array.from(document.querySelectorAll('.js-component'));
+    var navs = Array.from(document.querySelectorAll('nav li a'));
+    var currentNav = null;
+    var scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+    var item = components.find(function (component) {
+      var elScrollTop = component.getBoundingClientRect().top + scrollTop;
+      var elScrollBottom = component.getBoundingClientRect().bottom + scrollTop;
+      if (scrollTop < 60 && elScrollTop < 100) return true;
+      if (scrollTop > elScrollTop - 40 && scrollTop < elScrollBottom - 40) return true;
+      if (scrollTop === elScrollTop - 40) return true;
+    });
 
-  if (item) {
-    var newNav = document.querySelector("nav a[href=\"#".concat(item.id, "\"]"));
+    if (item) {
+      var newNav = document.querySelector("nav a[href=\"#".concat(item.id, "\"]"));
 
-    if (newNav !== currentNav) {
-      currentNav = newNav;
-      navs.forEach(function (nav) {
-        return nav.classList.remove("isActive");
-      });
-      currentNav.classList.add("isActive");
+      if (newNav !== currentNav) {
+        currentNav = newNav;
+        navs.forEach(function (nav) {
+          return nav.classList.remove("isActive");
+        });
+        currentNav.classList.add("isActive");
+      }
     }
-  }
-};
+  };
+
+  setNavStyle();
+  window.addEventListener("scroll", setNavStyle);
+});
 
 /***/ }),
 

@@ -3,7 +3,7 @@
  <div class="flex justify-between">
  <div class="">logo</div>
  <nav class="">
- <ul class="flex text-lg md:text-2xl">
+ <ul class="flex text-lg md:text-lg">
  <li class="underline mx-4">
  <a href="#home" class="">Home</a>
  </li>

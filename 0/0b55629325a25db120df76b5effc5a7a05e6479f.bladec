@@ -2,8 +2,8 @@
  <div class="bg-hero bg-cover text-white py-16 md:py-24">
  <div class="max-w-container-xs px-4 mx-auto">
  <h1 class="mb-12 text-3xl font-bold">FINANCIAL LEAD GENERATION.</h1>
- <div class="mb-12 text-lg md:text-2xl">With industry recognition, we produce high volumes of top performing personal finance leads and drive outstanding results to our buyers in the UK, USA, and Australia. Through our property network, we generate a constant flow of quality traffic allowing our partners to access millions of pounds of consumer credit applications.</div>
- <div class="mb-12 text-lg md:text-2xl font-semibold text-center text-yellow-400">WE OPERATE A PROPERTY NETWORK OF 30+ LEADING LOAN AND COMPARISON BRANDS IN DIFFERENT TERRITORIES.</div>
+ <div class="mb-12 text-lg md:text-lg">With industry recognition, we produce high volumes of top performing personal finance leads and drive outstanding results to our buyers in the UK, USA, and Australia. Through our property network, we generate a constant flow of quality traffic allowing our partners to access millions of pounds of consumer credit applications.</div>
+ <div class="mb-12 text-lg md:text-lg font-semibold text-center link">WE OPERATE A PROPERTY NETWORK OF 30+ LEADING LOAN AND COMPARISON BRANDS IN DIFFERENT TERRITORIES.</div>
  <div class="text-right">
  <a href="" class="underline">SCROLL FOR MORE</a>
  </div>
@@ -12,13 +12,13 @@
  <div class="py-16 md:py-24">
  <div class="max-w-container-sm px-4 mx-auto">
  <h2 class="mb-12 text-3xl font-bold text-center">OUR PROMISE</h2>
- <p class="text-lg md:text-2xl mb-5">We are passionate about connecting customers with credit solutions, and our buying platform is filled with best class leads.</p>
- <p class="text-lg md:text-2xl mb-5">At Season Finance we protect our buyers assuring a fair treatment of our users first. We are fully FCA licensed and GDPR compliant.</p>
- <p class="text-lg md:text-2xl mb-5">We develop long-term trustworthy relationships with our partners and are available just one message or phone call away. All our systems are coded in-house so we can provide bespoke services and fix issues in no time.</p>
+ <p class="text-lg md:text-lg mb-5">We are passionate about connecting customers with credit solutions, and our buying platform is filled with best class leads.</p>
+ <p class="text-lg md:text-lg mb-5">At Season Finance we protect our buyers assuring a fair treatment of our users first. We are fully FCA licensed and GDPR compliant.</p>
+ <p class="text-lg md:text-lg mb-5">We develop long-term trustworthy relationships with our partners and are available just one message or phone call away. All our systems are coded in-house so we can provide bespoke services and fix issues in no time.</p>
  <div class="w-1/2 mt-10 ml-auto">
  <div class="p-2 text-right border-4 border-yellow-300 text-xl italic">
  <div>SOUNDS LIKE YOUR DREAM BUSINESS PARTNER?</div>
- <div><a href="mailto:hello@seasonfinance.com" class="font-semibold text-yellow-400 underline">GET IN TOUCH</a>, WE WOULD LOVE TO HEAR FROM YOU!</div>
+ <div><a href="mailto:hello@seasonfinance.com" class="font-semibold link underline">GET IN TOUCH</a>, WE WOULD LOVE TO HEAR FROM YOU!</div>
  </div>
  </div>
  </div>

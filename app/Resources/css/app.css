@@ -15,11 +15,11 @@
 }
 
 nav li a.isActive {
-  @apply text-yellow-300;
+  color: #8cc7ab;
 }
 
-nav li a.isActive {
-  color: #61984c;
+.orange {
+  color: #8cc7ab;
 }
 
 @media screen and (min-width: 768px) {
@@ -54,4 +54,20 @@ nav li a.isActive {
   height: 4px;
   background-color: black;
   margin: 4px 0;
+}
+
+.hero-subheader {
+  line-height: 37px;
+  font-size: 28px;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-subheader {
+    line-height: 30px;
+    font-size: 18px;
+  }
+}
+
+.link {
+  color: #8cc7ab;
 }
