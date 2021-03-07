@@ -8,7 +8,6 @@ export const setNavStyle = () => {
     const elScrollTop = component.getBoundingClientRect().top + scrollTop;
     const elScrollBottom = component.getBoundingClientRect().bottom + scrollTop;
 
-    console.log(elScrollTop, component)
     if (scrollTop < 60 && elScrollTop < 100) return true;
     if (scrollTop > elScrollTop - 40 && scrollTop < elScrollBottom - 40) return true;
     if (scrollTop === elScrollTop - 40) return true;
