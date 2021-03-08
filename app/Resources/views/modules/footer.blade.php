@@ -29,9 +29,9 @@
         <li><a target="_blank" href="https://terms1.co.uk/cookies-policy.php" class="link">Cookies Policy</a></li>
       </ul>
     </div>
-    <div class="flex items-center px-10 pb-12">
+    <div class="flex items-start px-10 pb-12">
       <div class="p-2 border border-white">
-        <img class="h-16 bg-white" src="app/Resources/images/icons/Linkedin-Logo.png" alt="">
+        <img class="h-4 bg-white" src="app/Resources/images/icons/Linkedin-Logo.png" alt="">
       </div>
       <img class="ml-4 h-20 bg-white" src="app/Resources/images/logo.png" alt="">
     </div>
