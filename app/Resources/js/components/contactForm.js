@@ -15,7 +15,6 @@ window.addEventListener("load", () => {
         }
       }
     };
-    console.log(`Contact.php?${params}`);
     xmlhttp.open("GET", `Contact.php?${params}`, true);
     xmlhttp.send();
   };

@@ -164,7 +164,6 @@ window.addEventListener("load", function () {
       }
     };
 
-    console.log("Contact.php?".concat(params));
     xmlhttp.open("GET", "Contact.php?".concat(params), true);
     xmlhttp.send();
   };
@@ -198,23 +197,23 @@ window.addEventListener("load", function () {
 /***/ (function(module, exports) {
 
 window.addEventListener('load', function () {
+  var height = document.querySelector('header').offsetHeight;
+
   var setNavStyle = function setNavStyle() {
     var components = Array.from(document.querySelectorAll('.js-component'));
     var navs = Array.from(document.querySelectorAll('nav li a'));
     var currentNav = null;
     var scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
-    console.log(scrollTop);
     var item = components.filter(function (component) {
       var elScrollTop = component.getBoundingClientRect().top + scrollTop;
       var elScrollBottom = component.getBoundingClientRect().bottom + scrollTop;
-      console.log(elScrollTop, elScrollBottom, component);
       if (scrollTop < 60 && elScrollTop < 100) return true;
-      if (scrollTop > elScrollTop - 40 && scrollTop < elScrollBottom - 40) return true;
-      if (scrollTop === elScrollTop - 40) return true;
+      if (scrollTop > elScrollTop - height && scrollTop < elScrollBottom - height) return true;
+      if (scrollTop === elScrollTop - height) return true;
     });
 
     if (item) {
-      var newNav = document.querySelector("nav a[href=\"#".concat(item.id, "\"]"));
+      var newNav = document.querySelector("nav a[href=\"#".concat(item[0].id, "\"]"));
 
       if (newNav !== currentNav) {
         currentNav = newNav;
