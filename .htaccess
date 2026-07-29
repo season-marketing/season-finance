@@ -1,0 +1,31 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteRule http://seasonfinance.com/rediect.php$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+RewriteRule ^leads$ leads.php [L]
+RewriteRule ^api/lead$ leads.php [L]
+RewriteRule ^api/application$ application.php
+RewriteRule ^api/status$ status.php [L]
+RewriteRule ^api/debt$ debt.php [L]
+RewriteRule ^api/user$ user.php [L]
+RewriteRule ^api/visit$ visit.php [L]
+RewriteRule ^api/affiliate$ affiliate.php [L]
+RewriteRule ^api/customer$ customer.php [L]
+RewriteRule ^api/postback$ postback.php [L]
+RewriteRule ^update/lead update_application.php?%{QUERY_STRING} [NC,L]
+RewriteRule ^processing$ processing.php?%{QUERY_STRING} [NC,L]
+RewriteRule ^tracking.js tracking.php?%{QUERY_STRING} [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php71” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php71 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

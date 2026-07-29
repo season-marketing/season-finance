@@ -1,21 +1,49 @@
 <div class="js-component" id="services">
- <div class="bg-black text-white py-16 md:py-24">
+ <div class="bg-white text-black py-16 md:py-24">
  <div class="max-w-container-sm px-4 mx-auto text-lg md:text-lg">
- <p class="mb-8">We dominate the paid search landscape, create simple websites, optimise landing pages, produce fast converting application forms, customise customer journeys, generate campaigns and, much more!</p>
- <p class="mb-8">Gravitating around innovation and flexibility, we are constantly working to stay one-step ahead in the industry through the development of new marketing tactics and technologies. </p>
- <p class="mb-8">Our primary focus is to provide the best experience to our customers and ensure quality and compliance first. </p>
- <p class="mb-12 text-center font-bold text-primary">THROUGH OUR 30+ BRANDS WE GENERATE TONS OF LEADS BY TIRELESSLY IMPROVING OUR CUSTOMER EXPERIENCE TO GIVE OUR BUYERS ACCESS TO A WHOLE WORLD OF PURCHASE.</p>
- <div class="flex items-center -mx-4 mb-10">
+ <h2 class="hero-header relative mb-8 md:mb-12 text-3xl md:text-5xl font-hero font-bold">What we do</h2>
+ <p class="mb-12 text-3xl md:text-5xl  text-primary font-bold" style="font-size:25px; line-height:40px;"><span style="color:#222;">Through our property network of</span> 30+ leading brands <span style="color:#222;">we generate</span> huge volumes of leads <span style="color:#222;">by continuously improving our customer experience to give our buyers access</span> to a whole world of purchase. </p>
+ <div class="flex items-center -mx-4 mb-10" style="background: white;padding: 17px;border-radius: 34px;opacity: 0.9;">
+
+ <img class="w-1/5 px-4" alt="" src="https://seasonfinance.com/app/Resources/images/mrpaydays_color.png" title="MrPayday.co.uk">
+ <img class="w-1/5 px-4" alt="" src="https://seasonfinance.com/app/Resources/images/loanmr-grey.png" title="LoanMr.co.uk">
+ <img class="w-1/5 px-4" alt="" src="https://www.creditraters.com/wp-content/uploads/2019/10/logo-color.png" title="CreditRaters.com">
+ <img class="w-1/5 px-4" alt="" src="https://seasonfinance.com/app/Resources/images/loankite_color2.png" title="LoanKite.co.uk">
+ <img class="w-1/5 px-4" alt="" src="https://seasonfinance.com/app/Resources/images/loanrapid.png" title="RapidLoans.co">
+ 
+ </div>
+ <!-- <p class="mb-12 text-3xl md:text-5xl  text-primary font-bold" style="font-size:35px; line-height:50px;"><span style="color:black;">Through our property network of</span> 30+ market leading brands<span style="color:black;">, we introduce</span> targetted prospects<span style="color:black;"> to direct lenders, debt management solutions and credit rating agencies around the UK - <span style="color:black;">by continuously improving our customer experience to give our buyers access</span> to a whole world of purchase. </p>-->
+ <!--   <div class="flex items-center -mx-4 mb-10">
  <img class="w-1/5 px-4" src="app/Resources/images/brand-logos/superpoundsloans_grey.png" alt="">
  <img class="w-1/5 px-4" src="app/Resources/images/brand-logos/swishloans_grey.png" alt="">
  <img class="w-1/5 px-4" src="app/Resources/images/brand-logos/loankite_grey.png" alt="">
  <img class="w-1/5 px-4" src="app/Resources/images/brand-logos/loanskipper_grey.png" alt="">
  <img class="w-1/5 px-4" src="app/Resources/images/brand-logos/loankite_grey.png" alt="">
+ </div>-->
+ <!--<div class="flex items-center -mx-4 mb-10" style="background: #ccc;padding: 17px;border-radius: px;opacity: 0.9;">
+ 
+ <img class="w-1/5 px-4" alt="" src="https://bluesealoans.co.uk/img/logo.png">
+ <img class="w-1/5 px-4" alt="" src="https://cashyes.co.uk/img/logo.png">
+ <img class="w-1/5 px-4" alt="" src="https://swishloans.com/img/logo.png">
+ <img class="w-1/5 px-4" alt="" src="https://creditdecline.co.uk/img/logo.png">
+<img class="w-1/5 px-4" alt="" src="https://rightloans.co/img/logo.png"> 
+ </div>-->
+ <p class="mb-8">We dominate paid search, create effective websites, optimise landing pages, tailor customer journeys and, much more!</p>
+ <p class="mb-8">Gravitating around innovation and flexibility, we are constantly working to stay one-step ahead in the industry through the development of new marketing tactics and technologies. </p>
+ <p class="mb-8">Our primary focus is to provide the best experience to our customers and ensure quality and compliance first. </p>
+ <!--  <p class="mb-12 text-3xl md:text-5xl  text-primary text-center font-semibold" style="font-size:22px; ">  <span style="color:black;"> <span style="color:black;">Debt management</span> - <span style="color:black;">Car finance</span> - <span style="color:black;">Direct Lenders</span>-->
+ </p>
  </div>
- <?php echo $this->runChild('components.scrollForMore', ['class' => 'text-white', 'link' => '#lenders']); ?>
  </div>
+ <!--<div id="promise" class="py-16 md:py-24 bg-black text-white">
+ <div class="max-w-container-sm px-4 mx-auto">
+ <p class="text-lg md:text-lg mb-5">We are passionate about connecting customers with credit solutions, and our buying platform is filled with best class leads.</p>
+ <p class="text-lg md:text-lg mb-5">At Season Finance we protect our buyers assuring a fair treatment of our users first. We are fully FCA licensed and GDPR compliant.</p>
+ <p class="text-lg md:text-lg mb-5">We develop long-term trustworthy relationships with our partners and are available just one message or phone call away. All our systems are coded in-house so we can provide bespoke services and fix issues in no time.</p>
+ 
  </div>
- <div id="lenders" class="py-16 md:py-24">
+ </div>-->
+ <!-- <div id="lenders" class="py-16 md:py-24">
  <div class="max-w-container-sm px-4 mx-auto text-lg md:text-lg bg-map bg-hero bg-contain bg-no-repeat">
  <div class="mb-8 md:mb-28">At Season Finance we deliver a technically advanced and flexible service to our partners in the UK, USA, and Australia.</div>
  <div class="">
@@ -34,5 +62,5 @@
  </div>
  <?php echo $this->runChild('components.scrollForMore', ['class' => 'text-black', 'link' => '#about']); ?>
  </div>
- </div>
+ </div> -->
 </div>

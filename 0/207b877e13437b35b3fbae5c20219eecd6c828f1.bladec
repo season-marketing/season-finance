@@ -9,11 +9,26 @@
  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="./dist/css/app.css" />
- <script src="./dist/js/app.js"></script>
- <title>Season Finance</title>
+ <link rel="stylesheet" href="./dist/css/extras.css" />
+ <script src="./dist/js/app-2.js"></script>
+ <title>Season Finance | Lead Generation Experts</title>
+ <script src="https://kit.fontawesome.com/074c1172ce.js" crossorigin="anonymous"></script>
  </head>
 
  <body class="font-body">
+ <style>
+ @media screen and (min-width: 768px) {
+ nav li a.isActive::after {
+ content: '';
+ width: 100%;
+ height: 2px;
+ display: block;
+ position: absolute;
+ margin-top: 7px;
+ background: #000000;
+ }
+ }
+ </style>
  <?php echo $this->yieldContent('header'); ?>
  <?php echo $this->yieldContent('body'); ?>
  <?php echo $this->yieldContent('footer'); ?>

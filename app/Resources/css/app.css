@@ -15,15 +15,15 @@
 }
 
 nav li a.isActive {
-  color: #8cc7ab;
+  color: black;
 }
 
 .text-primary {
-  color: #8cc7ab;
+  color: #FBD44D;
 }
 
 .bg-primary {
-  background: #8cc7ab;
+  background: #FBD44D;
 }
 
 @media screen and (min-width: 768px) {
@@ -34,24 +34,10 @@ nav li a.isActive {
     display: block;
     position: absolute;
     margin-top: 7px;
-    background: #8cc7ab;
+    background: black;
   } 
 }
 
-.hero-header::before {
-  background-image: url(../../app/Resources/images/links/recs-white.svg);
-  content: '';
-  width: 50px;
-  height: 50px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  background-position: center;
-  margin-top: 7px;
-  display: inline;
-  left: -60px;
-  top: -10px;
-}
 
 #navToggle div {
   width: 25px;
@@ -72,5 +58,9 @@ nav li a.isActive {
 }
 
 .link {
-  color: #8cc7ab;
+  color: white !important;
+}
+.md\:py-24 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
 }

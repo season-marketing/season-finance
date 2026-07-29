@@ -31109,15 +31109,15 @@ video {
 }
 
 nav li a.isActive {
-  color: #8cc7ab;
+  color: #FBD44D;
 }
 
 .text-primary {
-  color: #8cc7ab;
+  color: #FBD44D;
 }
 
 .bg-primary {
-  background: #8cc7ab;
+  background: #FBD44D;
 }
 
 @media screen and (min-width: 768px) {
