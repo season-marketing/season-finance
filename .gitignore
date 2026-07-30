@@ -1,0 +1,16 @@
+# Backup dumps pulled in from the server sync - not part of the site
+bk/
+wp_bk/
+
+# Archives - vendor bundles / manual backups, not source
+*.zip
+
+# Server/runtime artifacts
+error_log
+.ftpquota
+
+# OS cruft
+.DS_Store
+
+0/*
+O/*

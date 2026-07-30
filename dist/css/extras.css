@@ -1,0 +1,10 @@
+.header-wrapper {
+    height: 65px;
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    height: 65px;
+  }
+}
+

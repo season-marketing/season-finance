@@ -11,7 +11,7 @@ $headers .= "From: <{$_REQUEST['email']}>" . "\r\n";
 $subject = "Season Finance Contact";
 
 $message = "
-    Name: {$_REQUEST['firstName']} {$_REQUEST['lastName']}\n\n
+    Name: {$_REQUEST['first_name']} {$_REQUEST['last_name']}\n\n
     Markets: {$_REQUEST['markets']}\n\n
     Phone: {$_REQUEST['phone']}\n\n
     Message: {$_REQUEST['message']}\n\n
