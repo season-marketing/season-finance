@@ -34,24 +34,11 @@ mkdir -p "$APP_ROOT"
 chown -R www-data:www-data "$APP_ROOT"
 
 # --- PHP-FPM pool: hard backstop independent of application code ------------
-cat > "/etc/php/${PHP_VERSION}/fpm/pool.d/seasonfinance.conf" <<EOF
-[seasonfinance]
-user = www-data
-group = www-data
-listen = /run/php/php${PHP_VERSION}-fpm-seasonfinance.sock
-listen.owner = www-data
-listen.group = www-data
-
-pm = dynamic
-pm.max_children = 40
-pm.start_servers = 6
-pm.min_spare_servers = 4
-pm.max_spare_servers = 12
-pm.max_requests = 500
-
-; Kill any worker stuck longer than this, no matter what the app sets.
-request_terminate_timeout = 30s
-EOF
+# Read from the repo (deploy/php-fpm-pool.conf) rather than generated inline,
+# so deploy.sh can keep it in sync on every redeploy - otherwise pool
+# settings only ever take effect once, at initial bootstrap, and silently
+# drift from the repo (this bit usa-ping before the pattern was fixed there).
+cp "$APP_ROOT/deploy/php-fpm-pool.conf" "/etc/php/${PHP_VERSION}/fpm/pool.d/seasonfinance.conf"
 
 # Remove the default pool listening on the same port range to avoid confusion
 rm -f "/etc/php/${PHP_VERSION}/fpm/pool.d/www.conf"

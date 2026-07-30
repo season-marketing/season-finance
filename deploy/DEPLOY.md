@@ -9,16 +9,26 @@ Broader in scope than `usa-ping`'s deploy: this is a real website (Blade-
 templated homepage, webpack/Tailwind-built frontend assets) plus the same
 kind of lead-posting API backend, not just the API alone.
 
-## Known gaps, carried over deliberately - not blockers, but don't forget them
+## Known gaps
 
-- **`leads.php`/`api.php` still have the zero-timeout curl bug** that caused
-  `usa-ping`'s original incident (`CURLOPT_TIMEOUT, 0` / `ini_set('max_execution_time', 0)`,
-  and `leads.php` points at the bare IP `35.177.229.97` instead of the
-  `portal.seasonmarketing.co.uk` hostname). Left as-is per explicit decision
-  to not touch app code in this pass. The PHP-FPM `request_terminate_timeout`
-  and nginx `fastcgi_read_timeout` below (both 30s) still bound the damage
-  structurally regardless of what the app code does - same safety net as
-  `usa-ping` has, just not the root-cause fix.
+- **Fixed since this doc was first written**: `api.php`'s zero-timeout curl
+  bug is resolved (`CURLOPT_TIMEOUT` 120s, `CURLOPT_CONNECTTIMEOUT` 30s), and
+  `leads.php` sets `max_execution_time` to 300s instead of unlimited. The
+  PHP-FPM `request_terminate_timeout` / nginx `fastcgi_read_timeout` (both
+  315s, see `deploy/php-fpm-pool.conf`) are set to stay above both of those,
+  same reasoning as `usa-ping`'s equivalent - if you change either app-level
+  timeout, these two need to move together with it or the same premature-
+  kill bug comes back.
+- **`leads.php` still points at the bare IP `http://35.177.229.97`** instead
+  of the `portal.seasonmarketing.co.uk` hostname, for the live (non-dev)
+  path. Worth knowing why this matters, from the parallel investigation on
+  `usa-ping`: `portal.seasonmarketing.co.uk` sits behind Cloudflare, which
+  has its own ~100s edge timeout that fails fast with a `524` if the origin
+  is slow. Calling the bare IP skips Cloudflare entirely, so a slow response
+  can now hang for the *full* 120s curl timeout (or up to the 315s FPM
+  ceiling for other slowness) instead of failing fast - not obviously worse,
+  but a different failure mode than `usa-ping` currently has. Not changed
+  here since it wasn't part of this deploy task.
 - **`Contact.php` sends email via PHP's `mail()`**, which needs a local MTA
   this fresh instance won't have, and AWS blocks outbound port 25 from EC2
   by default. The contact form will silently fail to send until this is
@@ -100,15 +110,24 @@ nginx error page.
 
 ## 4. Redeploying later
 
-Use `deploy.sh`, not manual `git pull` + `cp` + reload - it backs up configs
-first, tests the nginx config before reloading, and auto-rolls-back if the
+For changes to `nginx-seasonfinance.conf`, `php-fpm-pool.conf`, or
+`bootstrap.sh`, use `deploy.sh` - it backs up configs first, tests both
+nginx and PHP-FPM configs before reloading, and auto-rolls-back if either
 test fails:
 
 ```bash
 sudo bash /var/www/seasonfinance/deploy/deploy.sh
 ```
 
-Roll back the last deploy with `sudo bash /var/www/seasonfinance/deploy/rollback.sh`.
+For plain PHP/Blade/asset changes where nothing under `deploy/` changed,
+`quick-pull.sh` is faster - just `git pull` + fix ownership, no config
+sync/test/reload:
+
+```bash
+sudo bash /var/www/seasonfinance/deploy/quick-pull.sh
+```
+
+Roll back the last `deploy.sh` run with `sudo bash /var/www/seasonfinance/deploy/rollback.sh`.
 See `usa-ping`'s `DEPLOY.md` for the fuller explanation of how these work -
 identical mechanism here, just no `composer install` step (see the top of
 `deploy.sh` for why).

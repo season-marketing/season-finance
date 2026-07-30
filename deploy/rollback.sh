@@ -51,8 +51,9 @@ if [ -f "$BACKUP_DIR/git-commit.txt" ]; then
     git -C "$APP_ROOT" checkout "$COMMIT" -- .
 fi
 
-echo "==> Testing nginx config"
+echo "==> Testing nginx and PHP-FPM configs"
 nginx -t
+php-fpm8.3 -t
 
 echo "==> Reloading nginx and PHP-FPM"
 systemctl reload nginx

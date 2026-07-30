@@ -3,8 +3,8 @@
 header('Content-Type: application/json');
 require ('api.php');
 
-ini_set('max_execution_time', 0);
-ini_set('request_terminate_timeout', 600);
+ini_set('max_execution_time', 300);
+ini_set('request_terminate_timeout', 300);
 
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);
@@ -30,7 +30,7 @@ if(!empty($_POST)){
     if(isset($_REQUEST['is_live']) && !$_REQUEST['is_live']){
         $api_domain = 'http://dev.portal.seasonmarketing.co.uk';
     }else{
-        $api_domain = 'http://35.177.229.97';
+        $api_domain = 'https://portal.seasonmarketing.co.uk';
     }
 
     $response =  $api->requestApi($api_domain . '/api/api/lead', $_POST);

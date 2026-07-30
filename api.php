@@ -16,8 +16,8 @@ class Portal{
 				'secret' => self::$API_SECRET,
 				'data' => $data)));
 			curl_setopt($curl, CURLOPT_HEADER, 1);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 0);
-            curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 0);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 120);
+            curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 30);
 
 
 			// Send the request

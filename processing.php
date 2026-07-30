@@ -1,9 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 require ('api.php');
 
 if(isset($_GET['code'])){
@@ -28,5 +24,5 @@ if(isset($_GET['code'])){
 
 }
 
- header('Location: http://creditraters.com'); 
+ header('Location: https://rightpaydays.com'); 
  exit;

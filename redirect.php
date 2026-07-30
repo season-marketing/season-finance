@@ -34,5 +34,5 @@ if(isset($_GET['code'])){
 
 }
 
- header('Location: http://creditraters.com'); 
+ header('Location: https://rightpaydays.com'); 
  exit;

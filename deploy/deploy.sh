@@ -47,8 +47,9 @@ git -C "$APP_ROOT" pull
 echo "==> Fixing ownership (git pull runs as root, so new/changed files come out root-owned)"
 chown -R www-data:www-data "$APP_ROOT"
 
-echo "==> Applying nginx config"
+echo "==> Applying nginx and PHP-FPM pool configs"
 cp "$APP_ROOT/deploy/nginx-seasonfinance.conf" "$NGINX_CONF_LIVE"
+cp "$APP_ROOT/deploy/php-fpm-pool.conf" "$FPM_POOL_LIVE"
 
 echo "==> Testing nginx config"
 if ! nginx -t; then
@@ -60,7 +61,27 @@ if ! nginx -t; then
     else
         echo "!! No prior nginx config to roll back to - manual fix needed."
     fi
-    echo "!! Deploy aborted. Fix deploy/nginx-seasonfinance.conf and retry - code was still pulled, only the config was rolled back."
+    if [ -f "$BACKUP_DIR/php-fpm-seasonfinance.conf" ]; then
+        cp "$BACKUP_DIR/php-fpm-seasonfinance.conf" "$FPM_POOL_LIVE"
+    fi
+    echo "!! Deploy aborted. Fix deploy/nginx-seasonfinance.conf and retry - code was still pulled, only the configs were rolled back."
+    exit 1
+fi
+
+echo "==> Testing PHP-FPM pool config"
+if ! php-fpm8.3 -t; then
+    echo "!! PHP-FPM config test FAILED - rolling back automatically"
+    if [ -f "$BACKUP_DIR/nginx-seasonfinance.conf" ]; then
+        cp "$BACKUP_DIR/nginx-seasonfinance.conf" "$NGINX_CONF_LIVE"
+    fi
+    if [ -f "$BACKUP_DIR/php-fpm-seasonfinance.conf" ]; then
+        cp "$BACKUP_DIR/php-fpm-seasonfinance.conf" "$FPM_POOL_LIVE"
+        php-fpm8.3 -t && systemctl reload php8.3-fpm
+        echo "!! Rolled back PHP-FPM pool config to pre-deploy state."
+    else
+        echo "!! No prior FPM pool config to roll back to - manual fix needed."
+    fi
+    echo "!! Deploy aborted. Fix deploy/php-fpm-pool.conf and retry - code was still pulled, only the configs were rolled back."
     exit 1
 fi
 
