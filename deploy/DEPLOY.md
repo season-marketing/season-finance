@@ -29,12 +29,14 @@ kind of lead-posting API backend, not just the API alone.
   ceiling for other slowness) instead of failing fast - not obviously worse,
   but a different failure mode than `usa-ping` currently has. Not changed
   here since it wasn't part of this deploy task.
-- **`Contact.php` sends email via PHP's `mail()`**, which needs a local MTA
-  this fresh instance won't have, and AWS blocks outbound port 25 from EC2
-  by default. The contact form will silently fail to send until this is
-  addressed - either request the port 25 restriction lifted from AWS (slow,
-  requires justification), or switch `Contact.php` to send via SES/SMTP
-  instead (faster, more reliable, but is an app code change - not done here).
+- **Fixed**: `Contact.php` used to send email via PHP's `mail()`, which
+  needs a local MTA this instance doesn't have, and AWS blocks outbound port
+  25 from EC2 by default - it would have silently failed to send. Now routes
+  through `portal`'s `actionSendEmail` API instead (see `portal`'s
+  `send-email-api` branch, `modules/api/controllers/ApiController.php`) -
+  same secret-auth as every other endpoint here, no local mail transport
+  needed. Requires that branch to be merged/deployed on `portal`'s side
+  before this actually works end to end.
 
 ## Prerequisites
 
