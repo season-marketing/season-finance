@@ -47,13 +47,19 @@ systemctl enable "php${PHP_VERSION}-fpm"
 systemctl restart "php${PHP_VERSION}-fpm"
 
 # --- nginx site -------------------------------------------------------------
-# Use the HTTP-only bootstrap config, not nginx-seasonfinance.conf directly -
-# the real one's 443 block references a cert that doesn't exist yet on a
-# brand-new instance, which would fail `nginx -t` and (under set -e) abort
-# this script before nginx ever reloads. DEPLOY.md's SSL step swaps to the
-# real config once certbot has actually obtained a certificate.
+# Auto-detect first-time bootstrap (no cert yet -> HTTP-only config, since
+# the real config's 443 block would fail `nginx -t` and, under set -e, abort
+# this script before nginx ever reloads) vs. a re-run on an already-set-up
+# instance (cert exists -> keep the real SSL config; don't silently downgrade
+# a working HTTPS site back to HTTP if bootstrap.sh ever gets run again).
 rm -f /etc/nginx/sites-enabled/default
-cp "$APP_ROOT/deploy/nginx-seasonfinance-bootstrap.conf" "/etc/nginx/sites-available/${APP_DOMAIN}"
+if [ -f "/etc/letsencrypt/live/${APP_DOMAIN}/fullchain.pem" ]; then
+    echo "Existing cert found for ${APP_DOMAIN} - using the full SSL config."
+    cp "$APP_ROOT/deploy/nginx-seasonfinance.conf" "/etc/nginx/sites-available/${APP_DOMAIN}"
+else
+    echo "No cert yet for ${APP_DOMAIN} - using the HTTP-only bootstrap config. Run the SSL step in deploy/DEPLOY.md next."
+    cp "$APP_ROOT/deploy/nginx-seasonfinance-bootstrap.conf" "/etc/nginx/sites-available/${APP_DOMAIN}"
+fi
 ln -sf "/etc/nginx/sites-available/${APP_DOMAIN}" "/etc/nginx/sites-enabled/${APP_DOMAIN}"
 nginx -t && systemctl enable nginx && systemctl restart nginx
 
