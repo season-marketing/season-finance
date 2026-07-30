@@ -145,14 +145,20 @@ instead of however long the old TTL was. Confirm with
 ```bash
 sudo certbot certonly --nginx -d seasonfinance.com -d www.seasonfinance.com \
   --non-interactive --agree-tos -m <email>
-sudo nginx -t && sudo systemctl reload nginx
 ```
 
-Note **`certonly`** - `nginx-seasonfinance.conf` already has the full 443
-block hardcoded to the standard cert paths this writes to. Do NOT use plain
-`certbot --nginx` (no `certonly`) - that lets certbot edit the live config
-file directly, and the next `deploy.sh`/`cp` would silently overwrite those
-edits and take HTTPS down, exactly like it did on `usa-ping` the first time.
+Note **`certonly`** - do NOT use plain `certbot --nginx` (no `certonly`) -
+that lets certbot edit the live config file directly, and the next
+`deploy.sh`/`cp` would silently overwrite those edits and take HTTPS down,
+exactly like it did on `usa-ping` the first time.
+
+Now swap from the bootstrap HTTP-only config to the real one, which has the
+443 block (the cert now exists, so this will pass):
+
+```bash
+sudo cp /var/www/seasonfinance/deploy/nginx-seasonfinance.conf /etc/nginx/sites-available/seasonfinance.com
+sudo nginx -t && sudo systemctl reload nginx
+```
 
 ## 7. Verify end to end
 

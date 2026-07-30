@@ -47,8 +47,13 @@ systemctl enable "php${PHP_VERSION}-fpm"
 systemctl restart "php${PHP_VERSION}-fpm"
 
 # --- nginx site -------------------------------------------------------------
+# Use the HTTP-only bootstrap config, not nginx-seasonfinance.conf directly -
+# the real one's 443 block references a cert that doesn't exist yet on a
+# brand-new instance, which would fail `nginx -t` and (under set -e) abort
+# this script before nginx ever reloads. DEPLOY.md's SSL step swaps to the
+# real config once certbot has actually obtained a certificate.
 rm -f /etc/nginx/sites-enabled/default
-cp "$APP_ROOT/deploy/nginx-seasonfinance.conf" "/etc/nginx/sites-available/${APP_DOMAIN}"
+cp "$APP_ROOT/deploy/nginx-seasonfinance-bootstrap.conf" "/etc/nginx/sites-available/${APP_DOMAIN}"
 ln -sf "/etc/nginx/sites-available/${APP_DOMAIN}" "/etc/nginx/sites-enabled/${APP_DOMAIN}"
 nginx -t && systemctl enable nginx && systemctl restart nginx
 
